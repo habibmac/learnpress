@@ -50,7 +50,8 @@ if ( ! class_exists( 'LP_Quiz' ) ) {
 			'show_hint'          => 'no',
 			'count_hint'         => 0,
 			'archive_history'    => 'no',
-			'show_hide_question' => 'yes'
+			'show_hide_question' => 'yes',
+			'multiple_questions' => 'no'
 		);
 
 		/**
@@ -127,6 +128,7 @@ if ( ! class_exists( 'LP_Quiz' ) ) {
 		 */
 		public static function get_default_meta() {
 			$meta = array(
+				'multiple_questions' => 'no',
 				'show_hide_question' => 'yes',
 				'review_questions'   => 'no',
 				'show_result'        => 'no',
@@ -778,7 +780,7 @@ if ( ! class_exists( 'LP_Quiz' ) ) {
 		 * Get the lesson class name
 		 *
 		 * @param  WP_Post $the_quiz
-		 * @param  array   $args (default: array())
+		 * @param  array $args (default: array())
 		 *
 		 * @return string
 		 */
@@ -818,14 +820,22 @@ if ( ! class_exists( 'LP_Quiz' ) ) {
 			$this->_set_data( 'show_hide_question', $show_or_hide );
 		}
 
+		public function set_multiple_questions( $multiple ) {
+			$this->_set_data( 'multiple_questions', $multiple );
+		}
+
 		public function get_show_hide_question() {
 			return 'yes' === $this->get_data( 'show_hide_question' );
+		}
+
+		public function get_multiple_questions() {
+			return 'yes' === $this->get_data( 'multiple_questions' );
 		}
 
 		/**
 		 * Get css classes of question displays in a list.
 		 *
-		 * @param int  $question_id
+		 * @param int $question_id
 		 * @param null $position
 		 *
 		 * @return array

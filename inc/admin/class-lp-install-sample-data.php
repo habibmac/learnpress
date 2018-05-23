@@ -474,6 +474,7 @@ class LP_Install_Sample_Data {
 		if ( $quiz_id ) {
 
 			$metas = array(
+				'_lp_multiple_questions' => 'no',
 				'_lp_show_hide_question' => 'no',
 				'_lp_review_questions'   => 'yes',
 				'_lp_show_result'        => 'yes',

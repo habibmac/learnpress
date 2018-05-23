@@ -56,6 +56,7 @@ if ( ! function_exists( 'LP_Quiz_CURD' ) ) {
 					'archive_history'    => get_post_meta( $quiz->get_id(), '_lp_archive_history', true ),
 					'count_hint'         => get_post_meta( $quiz->get_id(), '_lp_hint_count', true ),
 					'show_hide_question' => get_post_meta( $quiz->get_id(), '_lp_show_hide_question', true ),
+					'multiple_questions' => get_post_meta( $quiz->get_id(), '_lp_multiple_questions', true ),
 					'review_questions'   => get_post_meta( $quiz->get_id(), '_lp_review_questions', true ),
 				)
 			);

@@ -6,7 +6,7 @@
  *
  * @author   ThimPress
  * @package  Learnpress/Templates
- * @version  3.0.8
+ * @version  3.1
  */
 
 /**
@@ -28,19 +28,23 @@ if ( false === $quiz->get_duration() ) {
 	return;
 }
 
-$result  = $quiz_data->get_results();
-$percent = $quiz_data->get_questions_answered( true );
-
+$multiple_questions = $quiz->get_multiple_questions();
+$result             = $quiz_data->get_results();
+$percent            = $quiz_data->get_questions_answered( true );
 ?>
 
 <div class="quiz-progress">
     <div class="progress-items">
         <div class="progress-item quiz-current-question">
             <span class="progress-number">
-				<?php echo sprintf( __( '%d/%d', 'learnpress' ), $quiz->get_question_index( $quiz_data->get_current_question(), 1 ), $quiz_data->get_total_questions() ); ?>
+                <?php if ( ! $multiple_questions ) {
+	                echo sprintf( __( '%d/%d', 'learnpress' ), $quiz->get_question_index( $quiz_data->get_current_question(), 1 ), $quiz_data->get_total_questions() );
+                } else {
+	                echo $quiz_data->get_total_questions();
+                } ?>
             </span>
             <span class="progress-label">
-				<?php _e( 'Question', 'learnpress' ); ?>
+				<?php echo $multiple_questions ? __( 'Questions', 'learnpress' ) : __( 'Question', 'learnpress' ); ?>
             </span>
         </div>
         <div class="progress-item quiz-countdown">

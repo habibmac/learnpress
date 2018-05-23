@@ -229,11 +229,28 @@ if ( ! class_exists( 'LP_Quiz_Post_Type' ) ) {
 				'priority'   => 'high',
 				'fields'     => array(
 					array(
-						'name' => __( 'Pagination Questions', 'learnpress' ),
-						'desc' => __( 'Show list of questions while doing quiz as ordered numbers (1, 2, 3, etc).', 'learnpress' ),
-						'id'   => '_lp_show_hide_question',
-						'type' => 'yes_no',
+						'name' => __( 'Multiple Questions', 'learnpress' ),
+						'desc' => __( 'Show list of questions while doing quiz.', 'learnpress' ),
+						'id'   => '_lp_multiple_questions',
+						'type' => 'yes-no',
 						'std'  => 'no'
+					),
+					array(
+						'name'       => __( 'Pagination Questions', 'learnpress' ),
+						'desc'       => __( 'Show list of questions while doing quiz as ordered numbers (1, 2, 3, etc).', 'learnpress' ),
+						'id'         => '_lp_show_hide_question',
+						'type'       => 'yes-no',
+						'std'        => 'no',
+						'visibility' => array(
+							'state'       => 'show',
+							'conditional' => array(
+								array(
+									'field'   => '_lp_multiple_questions',
+									'compare' => '!=',
+									'value'   => 'yes'
+								)
+							)
+						)
 					),
 					array(
 						'name' => __( 'Review Questions', 'learnpress' ),
@@ -363,7 +380,7 @@ if ( ! class_exists( 'LP_Quiz_Post_Type' ) ) {
 		 * Display content for custom column
 		 *
 		 * @param string $name
-		 * @param int    $post_id
+		 * @param int $post_id
 		 */
 		public function columns_content( $name, $post_id = 0 ) {
 			global $post;
