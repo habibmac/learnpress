@@ -21,5 +21,5 @@ if ( ! $questions = $quiz->get_questions() ) {
 }
 
 foreach ( $questions as $question ) {
-	learn_press_get_template( 'content-question/content.php', array( 'question' => $question ) );
+	learn_press_get_template( 'content-question/content.php', array( 'question' => LP_Question::get_question( $question ) ) );
 }

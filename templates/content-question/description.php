@@ -6,7 +6,7 @@
  *
  * @author   ThimPress
  * @package  Learnpress/Templates
- * @version  3.0.0
+ * @version  3.1
  */
 
 /**
@@ -14,9 +14,10 @@
  */
 defined( 'ABSPATH' ) || exit();
 
-$quiz = LP_Global::course_item_quiz();
+$quiz     = LP_Global::course_item_quiz();
+$question = $question ? $question : LP_Global::quiz_question();
 
-if ( ! $question = LP_Global::quiz_question() ) {
+if ( ! $question ) {
 	return;
 }
 

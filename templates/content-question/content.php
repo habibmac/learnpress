@@ -14,7 +14,7 @@
  */
 defined( 'ABSPATH' ) || exit();
 
-$question = LP_Global::quiz_question(); ?>
+$question = isset( $question ) ? $question : LP_Global::quiz_question(); ?>
 
 <div class="content-question-summary" id="content-question-<?php echo $question->get_id(); ?>">
 	<?php
@@ -23,5 +23,5 @@ $question = LP_Global::quiz_question(); ?>
 	 * @see learn_press_content_item_summary_question_content()
 	 * @see learn_press_content_item_summary_question()
 	 */
-	do_action( 'learn-press/question-content-summary' ); ?>
+	do_action( 'learn-press/question-content-summary', $question ); ?>
 </div>

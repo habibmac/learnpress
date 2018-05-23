@@ -237,6 +237,7 @@ add_action( 'learn-press/course-section-item/before-lp_lesson-meta', 'learn_pres
  */
 add_action( 'learn-press/before-content-item-summary/lp_quiz', 'learn_press_content_item_quiz_title', 5 );
 add_action( 'learn-press/before-content-item-summary/lp_quiz', 'learn_press_content_item_quiz_intro', 10 );
+add_action( 'learn-press/before-content-item-summary/lp_quiz', 'learn_press_content_item_review_quiz_title', 15 );
 
 /**
  * @see learn_press_content_item_summary_quiz_content
@@ -269,7 +270,7 @@ add_action( 'learn-press/after-content-item-summary/lp_quiz', 'learn_press_conte
  * @see learn_press_content_item_summary_question_explanation
  * @see learn_press_content_item_summary_question_hint
  */
-add_action( 'learn-press/question-content-summary', 'learn_press_content_item_review_quiz_title', 5 );
+//add_action( 'learn-press/question-content-summary', 'learn_press_content_item_review_quiz_title', 5 );
 add_action( 'learn-press/question-content-summary', 'learn_press_content_item_summary_question_title', 10 );
 add_action( 'learn-press/question-content-summary', 'learn_press_content_item_summary_question_content', 15 );
 add_action( 'learn-press/question-content-summary', 'learn_press_content_item_summary_question', 20 );
