@@ -203,8 +203,10 @@ https://www.transifex.com/projects/p/learnpress/
 ~ Fixed button for creating LP pages does not work properly.
 ~ Fixed warning when getting course items does not exists.
 ~ Added button to close warning for outdated templates.
-~ Search order not working.
-~ Get course items in incorrect order.
+~ Fixed search order not working.
+~ Fixed get course items in incorrect order.
+~ Fixed can't start quiz when the course is not required enroll.
+~ Fixed the amount number of enrolled users isn't updated correctly.
 
 = 3.2.4 =
 ~ Fixed cannot enroll course.
